@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     flexShrink: 1,
-    backgroundColor: theme.colors.mainBackground
+    backgroundColor: theme.colors.mainBackground,
+    fontFamily: theme.fonts.main
   }
 });
 
