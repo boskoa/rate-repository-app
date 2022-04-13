@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import theme from '../theme';
+import theme from '../../theme';
 import Description from './Description';
 import Stats from './Stats';
 

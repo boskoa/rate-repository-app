@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet } from 'react-native';
-import Text from './Text';
-import theme from '../theme';
-import { TouchableOpacity } from 'react-native-web';
+import Text from '../Text';
+import theme from '../../theme';
+import { TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
