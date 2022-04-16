@@ -5,6 +5,8 @@ import Text from './Text';
 import { View, StyleSheet } from 'react-native';
 import theme from '../theme';
 import * as yup from 'yup';
+import useSignIn from '../hooks/useSignIn';
+import { useNavigate } from 'react-router-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,11 +53,21 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-  const onSubmit = (values) => {
+  const [signIn] = useSignIn();
+  const navigate = useNavigate();
+
+  const onSubmit = async (values) => {
     const username = values.username;
     const password = values.password;
 
-    username && password && console.log(username, password);
+    try {
+      const data = await signIn({ username, password });
+      console.log('Data:', data);
+      navigate('/');
+    } catch (e) {
+      console.log('Error', e);
+    }
+    //username && password && console.log(username, password);
   };
 
   return (
