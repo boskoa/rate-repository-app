@@ -17,7 +17,7 @@ const Stat = ({ text, value }) => {
   };
   return (
     <View style={styles.container}>
-      <Text color="primary" fontWeight="bold">{roundedValue(value)}</Text>
+      <Text testID="stat" color="primary" fontWeight="bold">{roundedValue(value)}</Text>
       <Text color="textSecondary">{text}</Text>
     </View>
   );

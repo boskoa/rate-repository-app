@@ -40,17 +40,24 @@ const Description = ({ item }) => {
       />
       <View style={styles.lesserContainer}>
         <Text
+          testID="name"
           color="primary"
           fontSize="subheading"
           fontWeight="bold"
           style={styles.items}
         >{item.fullName}</Text>
-        <Text color="textSecondary" style={styles.items}>{item.description}</Text>
+        <Text
+          testID="description"
+          color="textSecondary"
+          style={styles.items}
+        >{item.description}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={[styles.items, styles.buttons]}
           >
-            <Text style={{ color: '#ffffff' }} fontWeight="bold">{item.language}</Text>
+            <Text testID="language" style={{ color: '#ffffff' }} fontWeight="bold">
+              {item.language}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
