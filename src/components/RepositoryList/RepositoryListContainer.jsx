@@ -8,16 +8,15 @@ const styles = StyleSheet.create({
   }
 });
 
-const ItemSeparator = () => <View style={styles.separator} />;
+export const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryListContainer = ({ repositories }) => {
+  const navigate = useNavigate();
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];
 
   const renderItem = ({ item }) => {
-    const navigate = useNavigate();
-
     return (
       <Pressable onPress={() => navigate(`/repository/${item.id}`)}>
         <RepositoryItem item={item} />
