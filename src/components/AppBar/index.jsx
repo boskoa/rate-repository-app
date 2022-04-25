@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexGrow: 1,
     padding: theme.paddings.flexContainer
+  },
+  signedFlexItem: {
+    marginLeft: 20
   }
 });
 
@@ -41,7 +44,20 @@ const AppBar = () => {
       <ScrollView horizontal contentContainerStyle={styles.contentContainerStyle}>
         <AppBarTab style={styles.flexItem} text="Repositories" link="/" />
         {data?.me
-          ? <AppBarTab style={styles.flexItem} text="Log out" onPress={logout} link="/" />
+          ? <View style={styles.container}>
+            <AppBarTab
+              style={[styles.flexItem, styles.signedFlexItem]}
+              text="Create a review"
+              onPress={() => console.log('Create a review')}
+              link="/create-review"
+            />
+            <AppBarTab
+              style={[styles.flexItem, styles.signedFlexItem]}
+              text="Sign out"
+              onPress={logout}
+              link="/"
+            />
+          </View>
           : <AppBarTab style={styles.flexItem} text="Sign in" link="/signin" />
         }
       </ScrollView>
