@@ -58,7 +58,19 @@ const AppBar = () => {
               link="/"
             />
           </View>
-          : <AppBarTab style={styles.flexItem} text="Sign in" link="/signin" />
+          : <View style={styles.container}>
+            <AppBarTab
+              style={[styles.flexItem, styles.signedFlexItem]}
+              text="Sign in"
+              link="/signin"
+            />
+            <AppBarTab
+              style={[styles.flexItem, styles.signedFlexItem]}
+              text="Sign up"
+              onPress={() => console.log('Sign up')}
+              link="/signup"
+            />
+          </View>
         }
       </ScrollView>
     </View>
