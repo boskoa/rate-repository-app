@@ -17,7 +17,11 @@ const RepositoryInfo = ({ repository }) => {
 
 const SingleView = () => {
   const { id } = useParams();
-  const { loading, error, repository } = useRepository(id);
+  const { loading, error, repository, fetchMore } = useRepository(id);
+
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   if (loading) {
     return <></>;
@@ -36,6 +40,8 @@ const SingleView = () => {
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
       ItemSeparatorComponent={ItemSeparator}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
     />
   );
 };

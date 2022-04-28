@@ -1,10 +1,22 @@
-import RepositoryListContainer from './RepositoryListContainer';
+import { useState } from 'react';
+import { RepositoryListContainer } from './RepositoryListContainer';
 import useRepositories from '../../hooks/useRepositories';
 
 const RepositoryList = () => {
-  const  { repositories } = useRepositories();
+  const [orderBy, setOrderBy] = useState('');
+  const [searchBy, setSearchBy] = useState('');
+  const { repositories, fetchMore } = useRepositories(orderBy, searchBy);
 
-  return <RepositoryListContainer repositories={repositories} />;
+  const onEndReach = () => {
+    fetchMore();
+  };
+
+  return <RepositoryListContainer
+    repositories={repositories}
+    setOrderBy={setOrderBy}
+    setSearchBy={setSearchBy}
+    onEndReach={onEndReach}
+  />;
 };
 
 export default RepositoryList;
