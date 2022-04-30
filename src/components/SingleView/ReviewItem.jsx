@@ -24,6 +24,13 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.button,
     borderRadius: 20,
     textAlign: 'center',
+  },
+  button: {
+    flexGrow: 1,
+    borderRadius: 3,
+    marginRight: theme.paddings.flexContainer,
+    padding: theme.paddings.flexContainer,
+    textAlign: 'center'
   }
 });
 

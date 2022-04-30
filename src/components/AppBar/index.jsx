@@ -53,6 +53,11 @@ const AppBar = () => {
             />
             <AppBarTab
               style={[styles.flexItem, styles.signedFlexItem]}
+              text="My reviews"
+              link="/my-reviews"
+            />
+            <AppBarTab
+              style={[styles.flexItem, styles.signedFlexItem]}
               text="Sign out"
               onPress={logout}
               link="/"

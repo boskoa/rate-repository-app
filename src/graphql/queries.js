@@ -34,12 +34,29 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const ME = gql`
-  query {
+  query($includeReviews: Boolean = false, $first: Int, $after: String) {
     me {
       username
       id
+      reviews(first: $first, after: $after) @include(if: $includeReviews) {
+        pageInfo {
+          hasNextPage
+          startCursor
+          endCursor
+        }
+        edges {
+          node {
+            ...ReviewInfo
+            repository {
+              id
+            }
+          }
+          cursor
+        }
+      }
     }
   }
+  ${REVIEW_INFO}
 `;
 
 export const GET_REPOSITORY = gql`
